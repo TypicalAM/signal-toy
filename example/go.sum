@@ -2,6 +2,8 @@ github.com/TypicalAM/signal-toy/double-ratchet v0.0.0-20250416165134-24b8ab9e9c5
 github.com/TypicalAM/signal-toy/double-ratchet v0.0.0-20250416165134-24b8ab9e9c56/go.mod h1:DutjpcCCqDkOW/T3j3hhqsMRuetn2vFYiU3Ct97NGZo=
 github.com/TypicalAM/signal-toy/double-ratchet v0.0.0-20250416165547-c1bcd73ee25c h1:WFVj3msNzomcFlT6q6YyfmJd310+8LWb2qDrkmMkofU=
 github.com/TypicalAM/signal-toy/double-ratchet v0.0.0-20250416165547-c1bcd73ee25c/go.mod h1:DutjpcCCqDkOW/T3j3hhqsMRuetn2vFYiU3Ct97NGZo=
+github.com/TypicalAM/signal-toy/double-ratchet v0.0.0-20250416171148-ca717f124f87 h1:BUq4fiEDoqjeo2Cw52BpAZBEADqZyBL335yGZEFPAG8=
+github.com/TypicalAM/signal-toy/double-ratchet v0.0.0-20250416171148-ca717f124f87/go.mod h1:BkmWAO7IZ+cdw1+x8ap1AYuNOlBhB4cW62HwiD/f+B0=
 github.com/aymanbagabas/go-osc52/v2 v2.0.1 h1:HwpRHbFMcZLEVr42D4p7XBqjyuxQH5SMiErDT4WkJ2k=
 github.com/aymanbagabas/go-osc52/v2 v2.0.1/go.mod h1:uYgXzlJ7ZpABp8OJ+exZzJJhRNQ2ASbcXHWsFqH8hp8=
 github.com/charmbracelet/lipgloss v1.0.0 h1:O7VkGDvqEdGi93X+DeqsQ7PKHDgtQfF8j8/O2qFMQNg=

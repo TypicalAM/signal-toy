@@ -3,7 +3,7 @@ module github.com/TypicalAM/signal-toy/example
 go 1.23.7
 
 require (
-	github.com/TypicalAM/signal-toy/double-ratchet v0.0.0-20250416165547-c1bcd73ee25c // indirect
+	github.com/TypicalAM/signal-toy/double-ratchet v0.0.0-20250416171148-ca717f124f87 // indirect
 	github.com/aymanbagabas/go-osc52/v2 v2.0.1 // indirect
 	github.com/charmbracelet/lipgloss v1.0.0 // indirect
 	github.com/charmbracelet/log v0.4.1 // indirect
