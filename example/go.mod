@@ -4,7 +4,7 @@ go 1.23.7
 
 require (
 	github.com/TypicalAM/signal-toy/double-ratchet v0.0.0-20250416180714-cd957ee2733b
-	github.com/TypicalAM/signal-toy/x3dh v0.0.0-20250416183843-fa1f3768396f
+	github.com/TypicalAM/signal-toy/x3dh v0.0.0-20250416184353-a8be0f46486d
 	github.com/charmbracelet/log v0.4.1
 )
 
