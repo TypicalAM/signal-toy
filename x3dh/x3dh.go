@@ -44,9 +44,11 @@ func HKDF(dhValues ...*big.Int) []byte {
 }
 
 type Server struct {
-	IK  *big.Int
-	SPK *big.Int
-	OPK *big.Int
+	IK_Rec  *big.Int
+	IK_Send *big.Int
+	EK      *big.Int
+	SPK     *big.Int
+	OPK     *big.Int
 }
 
 type Receiver struct {
@@ -91,18 +93,26 @@ func (send *Sender) InitSender(ik, ek int64) {
 	send.DH = make([]*big.Int, 4)
 }
 
+func (srv *Server) InitServer(rec *Receiver, send *Sender) {
+	srv.IK_Rec = rec.IK
+	srv.SPK = rec.SPK
+	srv.OPK = rec.OPK
+	srv.IK_Send = send.IK
+	srv.EK = send.EK
+}
+
 func (send *Sender) ComputeDH(server *Server) {
 	send.DH[0] = new(big.Int).Exp(server.SPK, send.ik, p)
-	send.DH[1] = new(big.Int).Exp(server.IK, send.ek, p)
+	send.DH[1] = new(big.Int).Exp(server.IK_Rec, send.ek, p)
 	send.DH[2] = new(big.Int).Exp(server.SPK, send.ek, p)
 	send.DH[3] = new(big.Int).Exp(server.OPK, send.ek, p)
 }
 
-func (rec *Receiver) ComputeDH(sender *Sender) {
-	rec.DH[0] = new(big.Int).Exp(sender.IK, rec.spk, p)
-	rec.DH[1] = new(big.Int).Exp(sender.EK, rec.ik, p)
-	rec.DH[2] = new(big.Int).Exp(sender.EK, rec.spk, p)
-	rec.DH[3] = new(big.Int).Exp(sender.EK, rec.opk, p)
+func (rec *Receiver) ComputeDH(server *Server) {
+	rec.DH[0] = new(big.Int).Exp(server.IK_Send, rec.spk, p)
+	rec.DH[1] = new(big.Int).Exp(server.EK, rec.ik, p)
+	rec.DH[2] = new(big.Int).Exp(server.EK, rec.spk, p)
+	rec.DH[3] = new(big.Int).Exp(server.EK, rec.opk, p)
 }
 
 func main() {
@@ -112,11 +122,8 @@ func main() {
 	alice := &Sender{}
 	alice.InitSender(3, 13)
 
-	server := &Server{
-		IK:  bob.IK,
-		SPK: bob.SPK,
-		OPK: bob.OPK,
-	}
+	server := &Server{}
+	server.InitServer(bob, alice)
 
 	fmt.Println("\nPublic Values:")
 	fmt.Println("Alice's Ephemeral Public Key:", alice.EK)
@@ -135,7 +142,7 @@ func main() {
 	aliceSecret := HKDF(alice.DH...)
 	fmt.Println("\nAlice Secret:", aliceSecret)
 
-	bob.ComputeDH(alice)
+	bob.ComputeDH(server)
 	fmt.Println("\nBob's DH Results:")
 	fmt.Println("DH1 (SPK_B, IK_A):", bob.DH[0])
 	fmt.Println("DH2 (IK_B, EK_A): ", bob.DH[1])
