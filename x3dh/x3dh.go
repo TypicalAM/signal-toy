@@ -69,7 +69,7 @@ type Sender struct {
 	DH []*big.Int
 }
 
-func (rec *Receiver) initReceiver(ik, spk, opk int64) {
+func (rec *Receiver) InitReceiver(ik, spk, opk int64) {
 	rec.ik = big.NewInt(ik)
 	rec.spk = big.NewInt(spk)
 	rec.opk = big.NewInt(opk)
@@ -81,7 +81,7 @@ func (rec *Receiver) initReceiver(ik, spk, opk int64) {
 	rec.DH = make([]*big.Int, 4)
 }
 
-func (send *Sender) initSender(ik, ek int64) {
+func (send *Sender) InitSender(ik, ek int64) {
 	send.ik = big.NewInt(ik)
 	send.ek = big.NewInt(ek)
 
@@ -91,14 +91,14 @@ func (send *Sender) initSender(ik, ek int64) {
 	send.DH = make([]*big.Int, 4)
 }
 
-func (send *Sender) computeDH(server *Server) {
+func (send *Sender) ComputeDH(server *Server) {
 	send.DH[0] = new(big.Int).Exp(server.SPK, send.ik, p)
 	send.DH[1] = new(big.Int).Exp(server.IK, send.ek, p)
 	send.DH[2] = new(big.Int).Exp(server.SPK, send.ek, p)
 	send.DH[3] = new(big.Int).Exp(server.OPK, send.ek, p)
 }
 
-func (rec *Receiver) computeDH(sender *Sender) {
+func (rec *Receiver) ComputeDH(sender *Sender) {
 	rec.DH[0] = new(big.Int).Exp(sender.IK, rec.spk, p)
 	rec.DH[1] = new(big.Int).Exp(sender.EK, rec.ik, p)
 	rec.DH[2] = new(big.Int).Exp(sender.EK, rec.spk, p)
@@ -107,10 +107,10 @@ func (rec *Receiver) computeDH(sender *Sender) {
 
 func main() {
 	bob := &Receiver{}
-	bob.initReceiver(5, 7, 11)
+	bob.InitReceiver(5, 7, 11)
 
 	alice := &Sender{}
-	alice.initSender(3, 13)
+	alice.InitSender(3, 13)
 
 	server := &Server{
 		IK:  bob.IK,
@@ -125,7 +125,7 @@ func main() {
 	fmt.Println("Bob's Signed Pre-Key:        ", bob.SPK)
 	fmt.Println("Bob's One-Time Pre-Key:      ", bob.OPK)
 
-	alice.computeDH(server)
+	alice.ComputeDH(server)
 	fmt.Println("\nAlice DH Results:")
 	fmt.Println("DH1 (IK_A, SPK_B):", alice.DH[0])
 	fmt.Println("DH2 (EK_A, IK_B): ", alice.DH[1])
@@ -135,7 +135,7 @@ func main() {
 	aliceSecret := HKDF(alice.DH...)
 	fmt.Println("\nAlice Secret:", aliceSecret)
 
-	bob.computeDH(alice)
+	bob.ComputeDH(alice)
 	fmt.Println("\nBob's DH Results:")
 	fmt.Println("DH1 (SPK_B, IK_A):", bob.DH[0])
 	fmt.Println("DH2 (IK_B, EK_A): ", bob.DH[1])
