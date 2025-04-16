@@ -126,11 +126,11 @@ func main() {
 	server.InitServer(bob, alice)
 
 	fmt.Println("\nPublic Values:")
-	fmt.Println("Alice's Ephemeral Public Key:", alice.EK)
-	fmt.Println("Alice's Identity Public Key:  ", alice.IK)
-	fmt.Println("Bob's Identity Public Key:    ", bob.IK)
-	fmt.Println("Bob's Signed Pre-Key:        ", bob.SPK)
-	fmt.Println("Bob's One-Time Pre-Key:      ", bob.OPK)
+	fmt.Println("Alice's Ephemeral Public Key:", server.EK)
+	fmt.Println("Alice's Identity Public Key:  ", server.IK_Send)
+	fmt.Println("Bob's Identity Public Key:    ", server.IK_Rec)
+	fmt.Println("Bob's Signed Pre-Key:        ", server.SPK)
+	fmt.Println("Bob's One-Time Pre-Key:      ", server.OPK)
 
 	alice.ComputeDH(server)
 	fmt.Println("\nAlice DH Results:")
