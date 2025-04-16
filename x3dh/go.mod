@@ -1,4 +1,4 @@
-module github.com/TypicalAM/signal-toy/tree/main/x3dh
+module github.com/TypicalAM/signal-toy/x3dh
 
 go 1.23.7
 
