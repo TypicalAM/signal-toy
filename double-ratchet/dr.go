@@ -1,4 +1,4 @@
-package main
+package dr
 
 import (
 	"crypto/hmac"
@@ -6,7 +6,6 @@ import (
 	"crypto/sha256"
 	"fmt"
 	"io"
-	"log"
 
 	"golang.org/x/crypto/chacha20poly1305"
 	"golang.org/x/crypto/curve25519"
@@ -183,37 +182,4 @@ func NewRatchet(rootKey []byte) (*RatchetState, error) {
 		CKr:     nil,
 		Skipped: make(map[string][]byte),
 	}, nil
-}
-
-func main() {
-	// Simulate shared root key (e.g. from X3DH)
-	rk := make([]byte, 32)
-	rand.Read(rk)
-
-	alice, err := NewRatchet(rk)
-	if err != nil {
-		log.Fatal("Failed to create alice", "err", err)
-	}
-
-	bob, err := NewRatchet(rk)
-	if err != nil {
-		log.Fatal("Failed to create bob", "err", err)
-	}
-
-	alice.InitPeer(bob.DHsPub[:])
-	bob.InitPeer(alice.DHsPub[:])
-
-	fmt.Println(">>> Alice sends 'Hello Bob'")
-	header, ciphertext := alice.SendMessage([]byte("Hello Bob"))
-
-	fmt.Println(">>> Bob receives")
-	plaintext, _ := bob.ReceiveMessage(header, ciphertext)
-	fmt.Printf("Bob decrypted: %s\n", string(plaintext))
-
-	fmt.Println(">>> Bob replies 'Hi Alice'")
-	replyHeader, replyCipher := bob.SendMessage([]byte("Hi Alice"))
-
-	fmt.Println(">>> Alice receives")
-	plaintext2, _ := alice.ReceiveMessage(replyHeader, replyCipher)
-	fmt.Printf("Alice decrypted: %s\n", string(plaintext2))
 }
