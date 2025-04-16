@@ -1,9 +1,7 @@
-github.com/TypicalAM/signal-toy/double-ratchet v0.0.0-20250416165134-24b8ab9e9c56 h1:601CRHqTTaaTbtfYqi8nlCJnWgk8alAvNJrJML93xto=
-github.com/TypicalAM/signal-toy/double-ratchet v0.0.0-20250416165134-24b8ab9e9c56/go.mod h1:DutjpcCCqDkOW/T3j3hhqsMRuetn2vFYiU3Ct97NGZo=
-github.com/TypicalAM/signal-toy/double-ratchet v0.0.0-20250416165547-c1bcd73ee25c h1:WFVj3msNzomcFlT6q6YyfmJd310+8LWb2qDrkmMkofU=
-github.com/TypicalAM/signal-toy/double-ratchet v0.0.0-20250416165547-c1bcd73ee25c/go.mod h1:DutjpcCCqDkOW/T3j3hhqsMRuetn2vFYiU3Ct97NGZo=
-github.com/TypicalAM/signal-toy/double-ratchet v0.0.0-20250416171148-ca717f124f87 h1:BUq4fiEDoqjeo2Cw52BpAZBEADqZyBL335yGZEFPAG8=
-github.com/TypicalAM/signal-toy/double-ratchet v0.0.0-20250416171148-ca717f124f87/go.mod h1:BkmWAO7IZ+cdw1+x8ap1AYuNOlBhB4cW62HwiD/f+B0=
+github.com/TypicalAM/signal-toy/double-ratchet v0.0.0-20250416180714-cd957ee2733b h1:91vDweWDsfc9ZyL+ch78x36WLCgRC/aMPSqHYJ0ra04=
+github.com/TypicalAM/signal-toy/double-ratchet v0.0.0-20250416180714-cd957ee2733b/go.mod h1:BkmWAO7IZ+cdw1+x8ap1AYuNOlBhB4cW62HwiD/f+B0=
+github.com/TypicalAM/signal-toy/x3dh v0.0.0-20250416183843-fa1f3768396f h1:28aLtJs0VqBL8LI09IHEnST0L0jYkoA5z1W9+BtYCFY=
+github.com/TypicalAM/signal-toy/x3dh v0.0.0-20250416183843-fa1f3768396f/go.mod h1:H8GRkEO/rfWhfskYQ+F2w+I0n5cvOPlzvyuNfxzJ5R8=
 github.com/aymanbagabas/go-osc52/v2 v2.0.1 h1:HwpRHbFMcZLEVr42D4p7XBqjyuxQH5SMiErDT4WkJ2k=
 github.com/aymanbagabas/go-osc52/v2 v2.0.1/go.mod h1:uYgXzlJ7ZpABp8OJ+exZzJJhRNQ2ASbcXHWsFqH8hp8=
 github.com/charmbracelet/lipgloss v1.0.0 h1:O7VkGDvqEdGi93X+DeqsQ7PKHDgtQfF8j8/O2qFMQNg=
@@ -12,6 +10,8 @@ github.com/charmbracelet/log v0.4.1 h1:6AYnoHKADkghm/vt4neaNEXkxcXLSV2g1rdyFDOpT
 github.com/charmbracelet/log v0.4.1/go.mod h1:pXgyTsqsVu4N9hGdHmQ0xEA4RsXof402LX9ZgiITn2I=
 github.com/charmbracelet/x/ansi v0.4.2 h1:0JM6Aj/g/KC154/gOP4vfxun0ff6itogDYk41kof+qk=
 github.com/charmbracelet/x/ansi v0.4.2/go.mod h1:dk73KoMTT5AX5BsX0KrqhsTqAnhZZoCBjs7dGWp4Ktw=
+github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
+github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/go-logfmt/logfmt v0.6.0 h1:wGYYu3uicYdqXVgoYbvnkrPVXkuLM1p1ifugDMEdRi4=
 github.com/go-logfmt/logfmt v0.6.0/go.mod h1:WYhtIu8zTZfxdn5+rREduYbwxfcBr/Vr6KEVveWlfTs=
 github.com/lucasb-eyer/go-colorful v1.2.0 h1:1nnpGOrhyZZuNyfu1QjKiUICQ74+3FNCN69Aj6K7nkY=
@@ -20,8 +20,12 @@ github.com/mattn/go-isatty v0.0.20 h1:xfD0iDuEKnDkl03q4limB+vH+GxLEtL/jb4xVJSWWE
 github.com/mattn/go-isatty v0.0.20/go.mod h1:W+V8PltTTMOvKvAeJH7IuucS94S2C6jfK/D7dTCTo3Y=
 github.com/muesli/termenv v0.16.0 h1:S5AlUN9dENB57rsbnkPyfdGuWIlkmzJjbFf0Tf5FWUc=
 github.com/muesli/termenv v0.16.0/go.mod h1:ZRfOIKPFDYQoDFF4Olj7/QJbW60Ol/kL1pU3VfY/Cnk=
+github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=
+github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
 github.com/rivo/uniseg v0.4.7 h1:WUdvkW8uEhrYfLC4ZzdpI2ztxP1I582+49Oc5Mq64VQ=
 github.com/rivo/uniseg v0.4.7/go.mod h1:FN3SvrM+Zdj16jyLfmOkMNblXMcoc8DfTHruCPUcx88=
+github.com/stretchr/testify v1.10.0 h1:Xv5erBjTwe/5IxqUQTdXv5kgmIvbHo3QQyRwhJsOfJA=
+github.com/stretchr/testify v1.10.0/go.mod h1:r2ic/lqez/lEtzL7wO/rwa5dbSLXVDPFyf8C91i36aY=
 golang.org/x/crypto v0.37.0 h1:kJNSjF/Xp7kU0iB2Z+9viTPMW4EqqsrywMXLJOOsXSE=
 golang.org/x/crypto v0.37.0/go.mod h1:vg+k43peMZ0pUMhYmVAWysMK35e6ioLh3wB8ZCAfbVc=
 golang.org/x/exp v0.0.0-20231006140011-7918f672742d h1:jtJma62tbqLibJ5sFQz8bKtEM8rJBtfilJ2qTU199MI=
@@ -29,3 +33,5 @@ golang.org/x/exp v0.0.0-20231006140011-7918f672742d/go.mod h1:ldy0pHrwJyGW56pPQz
 golang.org/x/sys v0.6.0/go.mod h1:oPkhp1MJrh7nUepCBck5+mAzfO9JrbApNNgaTdGDITg=
 golang.org/x/sys v0.32.0 h1:s77OFDvIQeibCmezSnk/q6iAfkdiQaJi4VzroCFrN20=
 golang.org/x/sys v0.32.0/go.mod h1:BJP2sWEmIv4KK5OTEluFJCKSidICx8ciO85XgH3Ak8k=
+gopkg.in/yaml.v3 v3.0.1 h1:fxVm/GzAzEWqLHuvctI91KS9hhNmmWOoWu0XTYJS7CA=
+gopkg.in/yaml.v3 v3.0.1/go.mod h1:K4uyk7z7BCEPqu6E+C64Yfv1cQ7kz7rIZviUmN+EgEM=

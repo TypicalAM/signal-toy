@@ -3,10 +3,14 @@ module github.com/TypicalAM/signal-toy/example
 go 1.23.7
 
 require (
-	github.com/TypicalAM/signal-toy/double-ratchet v0.0.0-20250416171148-ca717f124f87 // indirect
+	github.com/TypicalAM/signal-toy/double-ratchet v0.0.0-20250416180714-cd957ee2733b
+	github.com/TypicalAM/signal-toy/x3dh v0.0.0-20250416183843-fa1f3768396f
+	github.com/charmbracelet/log v0.4.1
+)
+
+require (
 	github.com/aymanbagabas/go-osc52/v2 v2.0.1 // indirect
 	github.com/charmbracelet/lipgloss v1.0.0 // indirect
-	github.com/charmbracelet/log v0.4.1 // indirect
 	github.com/charmbracelet/x/ansi v0.4.2 // indirect
 	github.com/go-logfmt/logfmt v0.6.0 // indirect
 	github.com/lucasb-eyer/go-colorful v1.2.0 // indirect

@@ -1,26 +1,36 @@
 package main
 
 import (
-	"crypto/rand"
 	"time"
 
 	dr "github.com/TypicalAM/signal-toy/double-ratchet"
+	x3dh "github.com/TypicalAM/signal-toy/x3dh"
 	"github.com/charmbracelet/log"
 )
 
 func main() {
 	log.SetLevel(log.DebugLevel)
 
-	// Simulate shared root key (e.g. from X3DH)
-	rk := make([]byte, 32)
-	rand.Read(rk)
+	receiver := x3dh.Receiver{}
+	receiver.InitReceiver(3, 5, 7)
 
-	alice, err := dr.NewRatchet(rk)
+	sender := x3dh.Sender{}
+	sender.InitSender(11, 13)
+
+	server := x3dh.Server{}
+	server.InitServer(&receiver, &sender)
+
+	sender.ComputeDH(&server)
+	rkSender := x3dh.HKDF(sender.DH...)
+
+	alice, err := dr.NewRatchet(rkSender)
 	if err != nil {
 		log.Fatal("Failed to create alice", "err", err)
 	}
 
-	bob, err := dr.NewRatchet(rk)
+	receiver.ComputeDH(&server)
+	rkReceiver := x3dh.HKDF(receiver.DH...)
+	bob, err := dr.NewRatchet(rkReceiver)
 	if err != nil {
 		log.Fatal("Failed to create bob", "err", err)
 	}
