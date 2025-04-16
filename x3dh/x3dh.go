@@ -1,4 +1,4 @@
-package main
+package x3dh
 
 import (
 	"crypto/sha256"
